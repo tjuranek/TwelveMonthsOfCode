@@ -1,0 +1,15 @@
+{
+  "name": "linkd",
+  "version": "0.0.1",
+  "description": "Url shortener akin to Bit.ly",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Thomas Juranek",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
