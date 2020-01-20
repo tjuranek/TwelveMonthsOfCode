@@ -10,7 +10,16 @@
   "author": "Thomas Juranek",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "edge": "^7.10.1",
+    "edge-sql": "^0.1.2",
     "express": "^4.17.1",
-    "mysql": "^2.17.1"
+    "i": "^0.3.6",
+    "msnodesqlv8": "^0.8.6",
+    "mysql": "^2.17.1",
+    "npm": "^6.13.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
