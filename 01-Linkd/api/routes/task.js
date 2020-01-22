@@ -3,6 +3,8 @@ import { getTasks } from '../services/taskService';
 
 const router = Router();
 
-router.get('/task', getTasks());
+router.get('/task', function(req, res) {
+	res.send(getTasks);
+});
 
 export { router };
