@@ -1,7 +1,8 @@
-const router = require('express').Router();
-import get from '../services/taskService';
+import { Router } from 'express';
+import { getTasks } from '../services/taskService';
 
-router.get('/task', get);
+const router = Router();
 
-module.exports = router;
-// get service
+router.get('/task', getTasks());
+
+export { router };

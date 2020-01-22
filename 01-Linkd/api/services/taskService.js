@@ -1,7 +1,7 @@
-import database from '../db';
+import { connection } from '../db';
 
 function getTasks() {
-	return database.query('select * from tasks');
+	return connection.query('select * from tasks');
 }
 
-export const get = getTasks();
+export { getTasks };

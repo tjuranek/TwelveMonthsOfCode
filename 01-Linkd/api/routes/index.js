@@ -1,3 +1,7 @@
-import expess from 'express';
+const router = require('express').Router();
 
-const taskRouter 
+const task = require('./task');
+
+router.use('/task', taskRouter);
+
+export default router;
