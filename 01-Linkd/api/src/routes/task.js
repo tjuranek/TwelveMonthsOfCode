@@ -1,10 +1,12 @@
-import { Router } from 'express';
-import { getTasks } from '../services/taskService';
+import express from 'express';
 
-const router = Router();
+import { getTasks } from '../services/taskService.js';
+
+const router = express.Router();
 
 router.get('/task', function(req, res) {
-	res.send(getTasks);
+	var tasks = getTasks();
+	res.send(tasks);
 });
 
-export { router };
+export { router as taskRouter };

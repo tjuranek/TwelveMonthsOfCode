@@ -1,7 +1,8 @@
-const router = require('express').Router();
+import express from 'express';
+const router = express.Router();
 
-const task = require('./task');
+router.get('/task', function(req, res) {
+	res.send('okie');
+});
 
-router.use('/task', taskRouter);
-
-export default router;
+export { router };
