@@ -8,6 +8,7 @@ ROUTES
             if user doesn't exist add to db
             create shortened url tied to user (id generator)
             return shortened url
+            log request
 
     - Get Url By Key()
         params:
@@ -17,6 +18,7 @@ ROUTES
         actions:
             get original url if exists from db
             return url otherwise null
+            log request
 
     - Delete Url By Key
         params:
@@ -26,6 +28,7 @@ ROUTES
         actions:
             delete original url if exists from db
             UserInfo (fingerprint js)
+            log request
 
     - GetUsageStatistics
         params:
