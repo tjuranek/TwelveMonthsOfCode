@@ -1,14 +1,7 @@
 import { connection } from '../../db/index.js';
 
 const getAllTasks = async (req, res) => {
-	let tasks;
-
-	var a = connection.query('select * from tasks');
-
-	connection.query('SELECT * FROM Tasks', (err, rows) => {
-		tasks = rows;
-	});
-
+	const tasks = await connection.query('select * from tasks');
 	res.send(tasks);
 };
 
