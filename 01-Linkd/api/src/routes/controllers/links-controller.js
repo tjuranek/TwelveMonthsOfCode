@@ -1,8 +1,9 @@
 import express from 'express';
-import { getLinkById } from '../middlewares/links-middleware.js';
+import { getLinkById, createLink } from '../middlewares/links-middleware.js';
 
 const linkRouter = express.Router();
 
 linkRouter.get('/:id', getLinkById);
+linkRouter.get('key', createLink);
 
 export { linkRouter };

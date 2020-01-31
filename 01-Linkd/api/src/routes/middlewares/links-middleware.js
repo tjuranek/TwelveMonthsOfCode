@@ -1,4 +1,10 @@
 import { connection } from '../../db/index.js';
+//import { generateKey } from '../../services/key-gen.js';
+
+const createLink = (req, res) => {
+	//const key = generateKey;
+	console.log('test');
+};
 
 const getLinkById = async (req, res) => {
 	try {
@@ -15,4 +21,4 @@ const getLinkById = async (req, res) => {
 	}
 };
 
-export { getLinkById };
+export { createLink, getLinkById };
