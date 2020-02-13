@@ -37,7 +37,6 @@ ROUTES
             get everything from stats table
         
 SERVICES
-    - Id Generator, something short like bit.ly but not a guid
     - FingerprintJs, look into, likely UI only 
     - a JS ORM, cause writing the sql for this isn't great and there are enough tables to make it viable
 
