@@ -1,5 +1,5 @@
 import express from 'express';
-import { linkRouter } from './controllers/links-controller.js';
+import { linkRouter } from '../middlewares/link-middleware.js';
 
 const router = express.Router();
 

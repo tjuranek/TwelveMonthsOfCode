@@ -1,7 +1,7 @@
-import { connection } from '../../db/index.js';
-import { generateKey } from '../../services/key-gen.js';
+import { connection } from '../db/index.js';
+import { generateKey } from '../services/key-gen.js';
 
-const generateLink = async (req, res) => {
+const createLink = async (req, res) => {
 	try {
 		const key = generateKey();
 		const link = req.body.link;
@@ -20,21 +20,13 @@ const generateLink = async (req, res) => {
 	}
 };
 
-const createLink = (req, res) => {
-	let key = generateKey();
-
-	console.log('Your key is: ' + key);
-
-	res.send(key);
-};
-
-const getLinkById = async (req, res) => {
+const getLink = async (req, res) => {
 	try {
-		const { id } = req.params;
-		if (!id) throw 'Id is required';
+		const { key } = req.params;
+		if (!key) throw 'Id is required';
 
 		const link = await connection.query(
-			`select * from Links where Id = ${id}`
+			`select * from Links where [Key] = '${key}'`
 		);
 
 		res.json(link.recordset);
@@ -44,8 +36,6 @@ const getLinkById = async (req, res) => {
 };
 
 const deleteLink = async (req, res) => {
-	// UPDATE LINKS SET IsDeleted = 1 WHERE [Key] = 'x8qTe38iE'
-
 	try {
 		const key = req.body.key;
 		if (!key) throw 'Key is a required parameter';
@@ -60,4 +50,4 @@ const deleteLink = async (req, res) => {
 	}
 };
 
-export { generateLink, createLink, getLinkById, deleteLink };
+export { createLink, getLink, deleteLink };
