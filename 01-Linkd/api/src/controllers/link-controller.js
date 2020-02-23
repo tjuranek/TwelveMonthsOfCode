@@ -1,5 +1,5 @@
 import { connection } from '../db/index.js';
-import { generateKey } from '../util/key-gen.js/index.js';
+import { generateKey } from '../util/key-gen.js';
 
 const createLink = async (req, res) => {
 	try {
