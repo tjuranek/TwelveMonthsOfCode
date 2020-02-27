@@ -1,0 +1,12 @@
+API:
+    - refactor
+    - seed data
+    - add data interface
+    - connect to online db
+    - add dapper framework or an orm
+    - try nosql db
+
+WEB:
+    - add a 404 page redirecting to blog
+    
+

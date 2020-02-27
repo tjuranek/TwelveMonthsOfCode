@@ -1,5 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { Router } from 'react-router';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import routes from './routes';
+
+ReactDOM.render(routes, document.getElementById('root'));
+
+//ReactDOM.render(<Home />, document.getElementById('root'));
