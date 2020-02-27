@@ -1,9 +1,18 @@
 import React from 'react';
+import { createUseStyles } from 'react-jss';
+
+const useStyles = createUseStyles({
+	header: {
+		color: 'green'
+	}
+});
 
 function Home() {
+	const classes = useStyles();
+
 	return (
 		<>
-			<h1>Home</h1>
+			<h1 className={classes.header}>Home</h1>
 		</>
 	);
 }
