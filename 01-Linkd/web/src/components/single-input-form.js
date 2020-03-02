@@ -17,8 +17,10 @@ const SingleInputForm = () => {
 
 	return (
 		<div className={classes.container}>
-			<input className={classes.input} type="text" />
-			<button type="button">Submit</button>
+			<input class="input" className={classes.input} type="text" />
+			<button class="button" type="button">
+				Submit
+			</button>
 		</div>
 	);
 };
