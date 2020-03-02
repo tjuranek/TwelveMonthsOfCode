@@ -1,20 +1,9 @@
 import React from 'react';
-import { createUseStyles } from 'react-jss';
 
-const useStyles = createUseStyles({
-	header: {
-		color: 'green'
-	}
-});
+import { Logo } from '../components/logo';
 
-function Home() {
-	const classes = useStyles();
+const Home = () => {
+	return <Logo />;
+};
 
-	return (
-		<>
-			<h1 className={classes.header}>Home</h1>
-		</>
-	);
-}
-
-export default Home;
+export { Home };
