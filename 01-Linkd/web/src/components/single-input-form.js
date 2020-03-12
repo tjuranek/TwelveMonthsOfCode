@@ -4,7 +4,7 @@ import { createUseStyles } from 'react-jss';
 const useStyles = createUseStyles({
 	container: {
 		display: 'grid',
-		gridTemplateColumns: '75% 25%',
+		gridTemplateColumns: '50% 50%',
 		gridTemplateRows: 'auto',
 		gridTemplateAreas: `
             'input button'
