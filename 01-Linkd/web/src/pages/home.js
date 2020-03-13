@@ -6,6 +6,7 @@ import Background from '../res/images/background.jpg';
 import { Logo } from '../components/logo';
 import { SingleInputForm } from '../components/single-input-form';
 import { Footer } from '../components/footer';
+import { ShortenLinkForm } from '../containers/shorten-link-form';
 
 const useStyles = createUseStyles({
 	page: {
@@ -23,6 +24,7 @@ const useStyles = createUseStyles({
 		width: '100vw'
 	},
 	content: {
+		alignSelf: 'center',
 		gridArea: 'content'
 	}
 });
@@ -32,9 +34,9 @@ const Home = () => {
 
 	return (
 		<div className={classes.page}>
-			<div class="content" className={classes.content}>
+			<div className={classes.content}>
 				<Logo />
-				<SingleInputForm />
+				<ShortenLinkForm />
 				<Footer />
 			</div>
 		</div>

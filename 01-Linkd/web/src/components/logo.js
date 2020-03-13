@@ -3,7 +3,12 @@ import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
 	logo: {
-		color: 'blue'
+		color: '#8FA9BF',
+		fontSize: '4rem',
+		fontWeight: 'bold',
+		paddingBottom: '15px',
+		textShadow:
+			'-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000'
 	}
 });
 
