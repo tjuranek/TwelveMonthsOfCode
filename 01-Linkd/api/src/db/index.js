@@ -1,8 +1,39 @@
 import mongodb from 'mongodb';
 
-const uri =
-	'mongodb+srv://tjuranek:Tho41303!@linkd-9aevg.mongodb.net/Linkd?retryWrites=true&w=majority';
-const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
+//TODO: change this to be an env var
+const databaseName = 'Linkd';
+const connectionString =
+	'mongodb+srv://tjuranek:Tho41303!@linkd-9aevg.mongodb.net';
+
+const client = new mongodb.MongoClient(connectionString, {
+	useNewUrlParser: true
+});
+
+let database;
+
+const openDatabaseConnection = async () => {
+	console.log('before connect');
+
+	await client.connect();
+
+	console.log('after connect');
+
+	database = client.db(databaseName);
+
+	console.log(database);
+	/* 	client.connect(err => {
+		database = client.db(databaseName);
+		//console.log(database);
+	}); */
+};
+
+const closeDatabaseConnection = () => {
+	client.close();
+};
+
+export { database, openDatabaseConnection, closeDatabaseConnection };
+
+/* 
 client.connect(err => {
 	const collection = client.db('Linkd').collection('Links');
 
@@ -21,7 +52,7 @@ client.connect(err => {
 let db = 0;
 const openDbConnection = () => {};
 const closeDbConnection = () => {};
-
+ */
 /* let db;
 
 const uri = 'mongodb+srv://tjuranek:Tho41303!@linkd-9aevg.mongodb.net/Linkd';
@@ -46,5 +77,3 @@ const openDbConnection = () => {
 const closeDbConnection = () => {
 	client.close();
 }; */
-
-export { db, openDbConnection, closeDbConnection };

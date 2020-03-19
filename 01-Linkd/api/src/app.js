@@ -1,10 +1,22 @@
 import bodyParser from 'body-parser';
 import express from 'express';
 
-import { openDbConnection } from './db/index.js';
 import { router } from './routes/router.js';
 
-openDbConnection();
+import { database } from './db/index.js';
+
+console.log('heres app');
+console.log(database);
+
+/* database
+	.collection('Links')
+	.find({})
+	.toArray(function(err, docs) {
+		//assert.equal(err, null);
+		console.log('Found the following records');
+		console.log(docs);
+		//callback(docs); 
+	}); */
 
 const app = express();
 
