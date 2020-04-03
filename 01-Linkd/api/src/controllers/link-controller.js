@@ -1,3 +1,4 @@
+import { database } from '../db/index.js';
 import { generateKey } from '../util/key-gen.js';
 
 const createLink = async (req, res) => {
@@ -9,43 +10,62 @@ const createLink = async (req, res) => {
 			.slice(0, 19)
 			.replace('T', ' ');
 
-		const result = await connection.query(
-			`INSERT INTO Links ([Key], [Link], [CreationDate]) VALUES ('${key}', '${link}', '${creationDate}')`
-		);
+		const { error, result } = await database.collection('Links').insert({
+			key: key,
+			link: link,
+			creationDate: creationDate,
+			isDeleted: false
+		});
 
-		res.sendStatus(200);
-	} catch (err) {
-		throw err;
+		if (error) throw error;
+		console.log(result);
+
+		res.json(key);
+	} catch (error) {
+		console.log(error);
+		res.sendStatus(500);
 	}
 };
 
 const getLink = async (req, res) => {
 	try {
 		const { key } = req.params;
-		if (!key) throw 'Id is required';
+		if (!key) throw 'Key is required to get record.';
 
-		const link = await connection.query(
-			`select * from Links where [Key] = '${key}'`
-		);
+		const response = await database.collection('Links').findOne({
+			key: key
+		});
 
-		res.json(link.recordset);
-	} catch (err) {
-		throw err;
+		if (!response) throw `A record with the key of ${key} was not found.`;
+
+		res.json(response.link);
+	} catch (error) {
+		console.log(error);
+		res.sendStatus(500);
 	}
 };
 
 const deleteLink = async (req, res) => {
 	try {
-		const key = req.body.key;
-		if (!key) throw 'Key is a required parameter';
+		const { key } = req.params;
+		if (!key) throw 'Key is a required to delete record.';
 
-		const result = await connection.query(
-			`UPDATE LINKS SET IsDeleted = 1 WHERE [Key] = '${key}'`
+		const { error, result } = await database.collection('Links').updateOne(
+			{
+				key: key
+			},
+			{
+				$set: { isDeleted: true }
+			}
 		);
 
+		if (error) throw error;
+		console.log(result);
+
 		res.sendStatus(200);
-	} catch (err) {
-		throw err;
+	} catch (error) {
+		console.log(error);
+		res.sendStatus(500);
 	}
 };
 

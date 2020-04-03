@@ -13,11 +13,8 @@
 	"type": "module",
 	"dependencies": {
 		"body-parser": "^1.19.0",
-		"esm": "^3.2.25",
 		"express": "^4.17.1",
 		"mongodb": "^3.5.5",
-		"mssql": "^6.0.1",
-		"npm": "^6.13.6",
 		"shortid": "^2.2.15"
 	},
 	"devDependencies": {
