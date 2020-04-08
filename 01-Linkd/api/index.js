@@ -6,7 +6,7 @@ const init = async () => {
 	const { app } = await import('./src/app.js');
 
 	const server = app;
-	const port = 3000;
+	const port = 3001;
 
 	server.listen(port, () => {
 		console.log(`Server started on port ${port}`);

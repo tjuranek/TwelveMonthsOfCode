@@ -13,14 +13,16 @@ const useStyles = createUseStyles({
 	}
 });
 
-const Input = ({ placeholder }) => {
+const Input = ({ onChange, placeholder, value }) => {
 	const classes = useStyles();
 
 	return (
 		<input
 			className={classes.input}
-			type="text"
+			onChange={event => onChange(event.target.value)}
 			placeholder={placeholder}
+			type="text"
+			value={value}
 		/>
 	);
 };
