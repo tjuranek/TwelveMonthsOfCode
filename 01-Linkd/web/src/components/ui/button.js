@@ -10,16 +10,19 @@ const useStyles = createUseStyles({
 		color: '#f5f5f5',
 		fontSize: '1.25rem',
 		fontWeight: 'bold',
-		height: '3.5rem'
+		height: '3.5rem',
+		'&:focus': {
+			outline: 'none'
+		}
 	}
 });
 
-const Button = ({ title }) => {
+const Button = ({ label, onClick }) => {
 	const classes = useStyles();
 
 	return (
-		<button className={classes.button} type="button" value="submit">
-			{title}
+		<button className={classes.button} onClick={onClick} type="button">
+			{label}
 		</button>
 	);
 };
