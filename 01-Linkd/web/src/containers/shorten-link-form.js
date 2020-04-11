@@ -13,14 +13,14 @@ const useStyles = createUseStyles({
 		gridTemplateRows: '1fr',
 		gridTemplateAreas: `
             'input button'
-        `
+        `,
 	},
 	input: {
-		gridArea: 'input'
+		gridArea: 'input',
 	},
 	button: {
-		gridArea: 'button'
-	}
+		gridArea: 'button',
+	},
 });
 
 const ShortenLinkForm = ({ shortenLink }) => {
@@ -29,12 +29,12 @@ const ShortenLinkForm = ({ shortenLink }) => {
 		hasValidationError: true,
 		showValidationErrors: false,
 		userInput: '',
-		validationErrorMessage: 'Input cannot be empty!'
+		validationErrorMessage: 'Input cannot be empty!',
 	};
 
 	const [state, setState] = useState(initialState);
 
-	const validateUserInput = value => {
+	const validateUserInput = (value) => {
 		const isEmpty = !value;
 		const isValidUrl = validateUrl(value);
 
@@ -43,7 +43,7 @@ const ShortenLinkForm = ({ shortenLink }) => {
 				...state,
 				hasValidationError: false,
 				userInput: value,
-				validationErrorMessage: ''
+				validationErrorMessage: '',
 			});
 
 			return;
@@ -57,15 +57,17 @@ const ShortenLinkForm = ({ shortenLink }) => {
 			...state,
 			hasValidationError: true,
 			userInput: value,
-			validationErrorMessage: errorMessage
+			validationErrorMessage: errorMessage,
 		});
 	};
 
-	const submitUserInput = async () => {
+	const submitForm = async (event) => {
+		event.preventDefault();
+
 		if (state.hasValidationError) {
 			setState({
 				...state,
-				hasSubmitBeenAttempted: true
+				hasSubmitBeenAttempted: true,
 			});
 
 			return;
@@ -76,12 +78,14 @@ const ShortenLinkForm = ({ shortenLink }) => {
 		if (!id) {
 			alert('Whoops! An error occurred while submitting your link!');
 		}
+
+		console.log(id);
 	};
 
 	const classes = useStyles();
 
 	return (
-		<div className={classes.layout}>
+		<form className={classes.layout} onSubmit={submitForm}>
 			<Input
 				className={classes.input}
 				hasError={
@@ -95,12 +99,8 @@ const ShortenLinkForm = ({ shortenLink }) => {
 				value={state.userInput}
 			/>
 
-			<Button
-				className={classes.button}
-				label="Shorten"
-				onClick={submitUserInput}
-			/>
-		</div>
+			<Button className={classes.button} label="Shorten" type="submit" />
+		</form>
 	);
 };
 

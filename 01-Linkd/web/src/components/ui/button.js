@@ -12,16 +12,17 @@ const useStyles = createUseStyles({
 		fontWeight: 'bold',
 		height: '3.5rem',
 		'&:focus': {
-			outline: 'none'
-		}
-	}
+			boxShadow: '0px 0px 0px 2px rgba(255, 255, 255, .4)',
+			outline: 'none',
+		},
+	},
 });
 
-const Button = ({ label, onClick }) => {
+const Button = ({ label, onClick, type = 'button' }) => {
 	const classes = useStyles();
 
 	return (
-		<button className={classes.button} onClick={onClick} type="button">
+		<button className={classes.button} onClick={onClick} type={type}>
 			{label}
 		</button>
 	);
