@@ -1,12 +1,9 @@
 import React from 'react';
 import { createUseStyles } from 'react-jss';
 
-import Background from '../res/images/background.jpg';
-
-import { Logo } from '../components/logo';
-import { SingleInputForm } from '../components/single-input-form';
-import { Footer } from '../components/footer';
+import { Logo, Footer, LinkCard } from '../components';
 import { ShortenLinkForm } from '../containers/shorten-link-form';
+import Background from '../res/images/background.jpg';
 
 const useStyles = createUseStyles({
 	page: {
@@ -21,12 +18,12 @@ const useStyles = createUseStyles({
 			'. . .'
 		`,
 		height: '100vh',
-		width: '100vw'
+		width: '100vw',
 	},
 	content: {
 		alignSelf: 'center',
-		gridArea: 'content'
-	}
+		gridArea: 'content',
+	},
 });
 
 const Home = () => {
@@ -36,7 +33,11 @@ const Home = () => {
 		<div className={classes.page}>
 			<div className={classes.content}>
 				<Logo />
+
 				<ShortenLinkForm />
+
+				<LinkCard link="test.com" />
+
 				<Footer />
 			</div>
 		</div>
