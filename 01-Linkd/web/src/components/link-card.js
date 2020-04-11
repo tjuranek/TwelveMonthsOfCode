@@ -1,7 +1,7 @@
 import React from 'react';
 import { createUseStyles } from 'react-jss';
 
-import { Button } from '../components/ui/ui';
+import { Button } from './ui';
 
 const useStyles = createUseStyles({});
 

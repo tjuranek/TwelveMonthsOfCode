@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createUseStyles } from 'react-jss';
 
-import { Button, Input } from '../components/ui/ui';
+import { Button, Input } from '../components/ui';
 import { submitLink } from '../util/api/link';
 import { validateUrl } from '../util/validation/link';
 
