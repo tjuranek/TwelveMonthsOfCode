@@ -4,6 +4,6 @@ import { linkRouter } from '../middlewares/link-middleware.js';
 
 const router = express.Router();
 
-router.use('/', linkRouter);
+router.use('/link', linkRouter);
 
 export { router };
