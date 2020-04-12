@@ -1,8 +1,8 @@
 import React from 'react';
 import { createUseStyles } from 'react-jss';
 
-import { Logo, Footer, LinkCard } from '../components';
-import { ShortenLinkForm } from '../containers/shorten-link-form';
+import { Logo, Footer } from '../components';
+import { LinkList, ShortenLinkForm } from '../containers';
 import Background from '../res/images/background.jpg';
 
 const useStyles = createUseStyles({
@@ -29,6 +29,7 @@ const useStyles = createUseStyles({
 const Home = () => {
 	const classes = useStyles();
 
+	const links = ['amazon.com', 'netflix.com', 'google.com'];
 	return (
 		<div className={classes.page}>
 			<div className={classes.content}>
@@ -36,7 +37,7 @@ const Home = () => {
 
 				<ShortenLinkForm />
 
-				<LinkCard link="test.com" />
+				<LinkList links={links} />
 
 				<Footer />
 			</div>
