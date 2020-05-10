@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { createUseStyles } from 'react-jss';
 
+import { AppContext } from '../store';
 import { Button, Input } from '../components/ui';
 import { submitLink } from '../util/api/link';
 import { validateUrl } from '../util/validation/link';
@@ -23,7 +24,7 @@ const useStyles = createUseStyles({
 	},
 });
 
-const ShortenLinkForm = ({ shortenLink }) => {
+const ShortenLinkForm = () => {
 	const initialState = {
 		hasSubmitBeenAttempted: false,
 		hasValidationError: true,
@@ -33,6 +34,7 @@ const ShortenLinkForm = ({ shortenLink }) => {
 	};
 
 	const [state, setState] = useState(initialState);
+	const { appState, appDispatch } = useContext(AppContext);
 
 	const validateUserInput = (value) => {
 		const isEmpty = !value;
@@ -77,9 +79,13 @@ const ShortenLinkForm = ({ shortenLink }) => {
 
 		if (!id) {
 			alert('Whoops! An error occurred while submitting your link!');
+			return;
 		}
 
-		console.log(id);
+		appDispatch({
+			type: 'ADD_LINK',
+			payload: state.userInput,
+		});
 	};
 
 	const classes = useStyles();

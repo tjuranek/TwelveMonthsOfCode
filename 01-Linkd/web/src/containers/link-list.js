@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { createUseStyles } from 'react-jss';
 
+import { AppContext } from '../store';
 import { LinkCard } from '../components';
 
 const useStyles = createUseStyles({
@@ -9,15 +10,21 @@ const useStyles = createUseStyles({
 	},
 });
 
-const LinkList = ({ links }) => {
+const LinkList = () => {
+	const { appState, appDispatch } = useContext(AppContext);
+
 	const classes = useStyles();
 
 	return (
-		<div className={classes.list}>
-			{links.map((link) => (
-				<LinkCard link={link} />
-			))}
-		</div>
+		<>
+			{appState.links.length > 0 && (
+				<div className={classes.list}>
+					{appState.links.map((link) => (
+						<LinkCard link={link} />
+					))}
+				</div>
+			)}
+		</>
 	);
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { createUseStyles } from 'react-jss';
 
 import { Logo, Footer } from '../components';
@@ -29,7 +29,6 @@ const useStyles = createUseStyles({
 const Home = () => {
 	const classes = useStyles();
 
-	const links = ['amazon.com', 'netflix.com', 'google.com'];
 	return (
 		<div className={classes.page}>
 			<div className={classes.content}>
@@ -37,7 +36,7 @@ const Home = () => {
 
 				<ShortenLinkForm />
 
-				<LinkList links={links} />
+				<LinkList />
 
 				<Footer />
 			</div>

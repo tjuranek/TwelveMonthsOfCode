@@ -1,16 +1,15 @@
 import React, { createContext, useReducer } from 'react';
 
 const initialState = {
-	valOne: 'valOne',
-	valTwo: 'valTwo',
+	links: [],
 };
 
 const reducer = (state, action) => {
 	switch (action.type) {
-		case 'SET_VALONE':
+		case 'ADD_LINK':
 			return {
 				...state,
-				valOne: action.payload,
+				links: [...state.links, action.payload],
 			};
 	}
 };
