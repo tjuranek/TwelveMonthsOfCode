@@ -2,7 +2,7 @@ import React from 'react';
 import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
-	button: {
+	submit: {
 		backgroundColor: '#8FA9BF',
 		border: '.25px solid #000000',
 		borderRadius: '2rem',
@@ -18,11 +18,22 @@ const useStyles = createUseStyles({
 	},
 });
 
-const Button = ({ label, onClick, type = 'button' }) => {
+const Button = ({ label, onClick, type = 'button', variant }) => {
+	const getClassNameByVariant = () => {
+		switch (variant) {
+			case 'submit':
+				return classes.submit;
+		}
+	};
+
 	const classes = useStyles();
 
 	return (
-		<button className={classes.button} onClick={onClick} type={type}>
+		<button
+			className={getClassNameByVariant()}
+			onClick={onClick}
+			type={type}
+		>
 			{label}
 		</button>
 	);

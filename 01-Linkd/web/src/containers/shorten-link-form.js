@@ -105,7 +105,12 @@ const ShortenLinkForm = () => {
 				value={state.userInput}
 			/>
 
-			<Button className={classes.button} label="Shorten" type="submit" />
+			<Button
+				className={classes.button}
+				label="Shorten"
+				type="submit"
+				variant="submit"
+			/>
 		</form>
 	);
 };
