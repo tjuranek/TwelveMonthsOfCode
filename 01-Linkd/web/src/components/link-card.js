@@ -25,6 +25,16 @@ const useStyles = createUseStyles({
 		gridArea: 'buttons',
 		justifyContent: 'center',
 	},
+	primaryLink: {
+		fontSize: '1.15rem',
+		fontWeight: 'bold',
+		paddingBottom: '.25rem',
+	},
+	secondaryLink: {
+		color: 'darkgray',
+		fontSize: '0.7rem',
+		paddingTop: '.25rem',
+	},
 });
 
 const LinkCard = ({ link }) => {
@@ -33,8 +43,10 @@ const LinkCard = ({ link }) => {
 	return (
 		<div className={classes.card}>
 			<div className={classes.link}>
-				<p>{link.link}</p>
-				<p>{link.key}</p>
+				<p className={classes.primaryLink}>{link.link}</p>
+				<p className={classes.secondaryLink}>
+					linkd.thomasjuranek.com/{link.key}
+				</p>
 			</div>
 
 			<div className={classes.buttons}>COPY/STATS</div>
