@@ -84,7 +84,10 @@ const ShortenLinkForm = () => {
 
 		appDispatch({
 			type: 'ADD_LINK',
-			payload: state.userInput,
+			payload: {
+				key: id,
+				link: state.userInput,
+			},
 		});
 	};
 

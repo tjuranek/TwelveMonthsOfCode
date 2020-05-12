@@ -1,5 +1,10 @@
 import React, { createContext, useReducer } from 'react';
 
+/* {
+	key: 
+	link:
+} */
+
 const initialState = {
 	links: [],
 };
